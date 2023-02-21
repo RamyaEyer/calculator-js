@@ -1,0 +1,33 @@
+.calculator{
+
+    display: grid;
+    min-width: 90vh;
+    width: 90vh;
+    background-color: #599B8B;
+    margin-left: auto;
+    margin-right: auto;
+
+    
+}
+
+.screen{
+
+    background-color: #C4FAC8;
+    min-height: 30vh;
+    height: 30vh;
+    min-width: 70vh;
+    width: 70vh;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+.numbers{
+
+    display: grid;
+    grid-template-rows: repeat(3,1fr);
+    grid-template-columns: repeat(3,1fr);
+    margin-left: auto;
+    margin-right: auto;
+
+}
