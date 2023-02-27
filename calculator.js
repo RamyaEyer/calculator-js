@@ -1,8 +1,8 @@
 // Implement Stack ADT on array 
 
-const numberInput = [];
-const numList = [];
-const mathsign = "";
+numberInput = [];
+numList = [];
+mathsign = "";
 
 function enterOne(){
 
@@ -77,7 +77,8 @@ function enterZero(){
 function enterPlus(){
 
     numList.push(numberInput.join(""));
-    numList.push("+");
+    mathsign = "+";
+    numList.push(mathsign);
     numberInput = [];
     alert(numList);
 
@@ -86,12 +87,21 @@ function enterPlus(){
 function enterEquals(){
 
     numList.push(numberInput.join(""));
-    solveQuestion();
-}
-
-function solveQuestion(){
-
-
+    checkMathsign();
 
 }
+
+function checkMathsign(){
+
+    if(mathsign == "+"){
+
+        document.getElementById("screen").innerHTML = parseFloat(numList[0]) + parseFloat(numList[2]);
+
+    }
+
+
+}
+
+
+
 
