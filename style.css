@@ -1,11 +1,13 @@
+
+
 .calculator{
 
     display: grid;
-    min-width: 90vh;
-    width: 90vh;
-    background-color: #599B8B;
+    min-width: 100vh;
+    width: 100vh;
     margin-left: auto;
     margin-right: auto;
+    background-color: #599B8B;
 
     
 }
@@ -37,7 +39,7 @@
     border-width: 1px;
     height: auto;
     width: auto;
-    grid-template-rows: repeat(3,1fr);
+    grid-template-rows: repeat(4,1fr);
     grid-template-columns: repeat(3,1fr);
    
 }
@@ -54,6 +56,7 @@
 .four-functions{
 
     display: flex;
+    padding-top: 4vh;
     flex-direction: column;
     float: right;
     width: 50%;
