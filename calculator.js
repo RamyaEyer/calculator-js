@@ -4,7 +4,6 @@ numberInput = [];
 numList = [];
 mathsign = "";
 ans;
-decimalCount = false;
 
 
 
@@ -82,21 +81,15 @@ function enterZero(){
 
 function enterDecimal(){
 
-    if(decimalCount === false){
-
-        numberInput.push(".");
-        document.getElementById("screen").innerHTML = numberInput.join("");
-        decimalCount = true;
-
-    }
-    
+    numberInput.push(".");
+    document.getElementById("screen").innerHTML = numberInput.join("");
+    disableDecimal();
 
 }
    
 
 function enterPlus(){
 
-    decimalCount = false;
     numList.push(numberInput.join(""));
     calculate();
     mathsign = "+";
@@ -107,7 +100,6 @@ function enterPlus(){
 
 function enterMinus(){
 
-    decimalCount = false;
     numList.push(numberInput.join(""));
     calculate();
     mathsign = "-";
@@ -118,7 +110,6 @@ function enterMinus(){
 
 function enterTimes(){
 
-    decimalCount = false;
     numList.push(numberInput.join(""));
     calculate();
     mathsign = "*";
@@ -130,7 +121,6 @@ function enterTimes(){
 
 function enterDivide(){
 
-    decimalCount = false;
     numList.push(numberInput.join(""));
     calculate();
     mathsign = "/";
@@ -144,19 +134,21 @@ function enterEquals(){
     decimalCount = false;
     numList.push(numberInput.join(""));
     checkMathsign();
+    clearMemory();
     
 }
 
+
 function calculate(){
 
-    if(numList.length === 3){
+    if(numList.length === 3 && numList[2] != 0){
 
         checkMathsign();
         numList = [];
         numList[0] = ans;
 
     }
-    
+
 }
 
 function checkMathsign(){
@@ -188,6 +180,28 @@ function checkMathsign(){
     document.getElementById("screen").innerHTML = ans;
 
 }
+
+
+function clearMemory(){
+
+    numList = [];
+    numberInput = [];
+
+}
+
+function clearCalc(){
+
+    clearMemory();
+    document.getElementById("screen").innerHTML = "";
+
+}
+
+function disableDecimal(){
+
+
+}
+
+
 
 
 
