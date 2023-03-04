@@ -231,6 +231,7 @@ function calculate(){
     if(numList.length === 1){
 
         document.getElementById("screen").innerHTML = numList[0];
+        document.querySelector(".negative").disabled = true;
 
     }
 
