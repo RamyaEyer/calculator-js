@@ -83,7 +83,22 @@ function enterDecimal(){
 
     numberInput.push(".");
     document.getElementById("screen").innerHTML = numberInput.join("");
-    disableDecimal();
+    document.querySelector(".decimal").disabled = true;
+
+}
+
+function enterNegative(){
+
+    numberInput.push(".");
+    document.getElementById("screen").innerHTML = numberInput.join("");
+    document.querySelector(".decimal").disabled = true;
+
+}
+
+function enterBackspace(){
+
+    numberInput.pop();
+    document.getElementById("screen").innerHTML = numberInput.join("");
 
 }
    
@@ -95,6 +110,7 @@ function enterPlus(){
     mathsign = "+";
     numList.push(mathsign);
     numberInput = [];
+    document.querySelector(".decimal").disabled = false;
 
 }
 
@@ -105,6 +121,7 @@ function enterMinus(){
     mathsign = "-";
     numList.push(mathsign);
     numberInput = [];
+    document.querySelector(".decimal").disabled = false;
 
 }
 
@@ -115,6 +132,7 @@ function enterTimes(){
     mathsign = "*";
     numList.push(mathsign);
     numberInput = [];
+    document.querySelector(".decimal").disabled = false;
 
 }
 
@@ -126,6 +144,7 @@ function enterDivide(){
     mathsign = "/";
     numList.push(mathsign);
     numberInput = [];
+    document.querySelector(".decimal").disabled = false;
 
 }
 
@@ -135,6 +154,7 @@ function enterEquals(){
     numList.push(numberInput.join(""));
     checkMathsign();
     clearMemory();
+    document.querySelector(".decimal").disabled = false;
     
 }
 
@@ -146,6 +166,12 @@ function calculate(){
         checkMathsign();
         numList = [];
         numList[0] = ans;
+
+    }
+
+    if(numList.length === 1){
+
+        document.getElementById("screen").innerHTML = numList[0];
 
     }
 
@@ -186,20 +212,18 @@ function clearMemory(){
 
     numList = [];
     numberInput = [];
+    document.querySelector(".decimal").disabled = false;
 
 }
 
 function clearCalc(){
 
-    clearMemory();
+    clearMemory();    
     document.getElementById("screen").innerHTML = "";
 
 }
 
-function disableDecimal(){
 
-
-}
 
 
 
