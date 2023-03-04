@@ -5,8 +5,6 @@ numList = [];
 mathsign = "";
 ans;
 
-
-
 function enterOne(){
 
     numberInput.push("1");
@@ -97,7 +95,21 @@ function enterNegative(){
 
 function enterBackspace(){
 
+    character = numberInput.slice(-1);
     numberInput.pop();
+
+    if(character == "."){
+
+        document.querySelector(".decimal").disabled = false;
+
+    }
+
+    if(character == "-"){
+
+        document.querySelector(".negative").disabled = false;
+
+    }
+
     document.getElementById("screen").innerHTML = numberInput.join("");
 
 }
@@ -111,6 +123,7 @@ function enterPlus(){
     numList.push(mathsign);
     numberInput = [];
     document.querySelector(".decimal").disabled = false;
+    document.querySelector(".negative").disabled = false;
 
 }
 
@@ -122,6 +135,7 @@ function enterMinus(){
     numList.push(mathsign);
     numberInput = [];
     document.querySelector(".decimal").disabled = false;
+    document.querySelector(".negative").disabled = false;
 
 }
 
@@ -133,9 +147,9 @@ function enterTimes(){
     numList.push(mathsign);
     numberInput = [];
     document.querySelector(".decimal").disabled = false;
+    document.querySelector(".negative").disabled = false;
 
 }
-
 
 function enterDivide(){
 
@@ -145,6 +159,7 @@ function enterDivide(){
     numList.push(mathsign);
     numberInput = [];
     document.querySelector(".decimal").disabled = false;
+    document.querySelector(".negative").disabled = false;
 
 }
 
@@ -155,9 +170,9 @@ function enterEquals(){
     checkMathsign();
     clearMemory();
     document.querySelector(".decimal").disabled = false;
+    document.querySelector(".negative").disabled = false;
     
 }
-
 
 function calculate(){
 
@@ -206,7 +221,6 @@ function checkMathsign(){
     document.getElementById("screen").innerHTML = ans;
 
 }
-
 
 function clearMemory(){
 
