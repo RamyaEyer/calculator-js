@@ -5,105 +5,20 @@ mathsign = "";
 ans;
 numLength = 30;
 
-/*enterOne() - enterZero()
+/* enterNumber(num)
 
 pushes described number into input screen and displays array forming entered number without commas.
 
 */
 
-function enterOne(){
+function enterNumber(num){
 
-    numberInput.push("1");
+    numberInput.push(num);
     document.getElementById("screen").innerHTML = numberInput.join("");
     disableNegative();
     disableNumberInput();
 
 }
-
-function enterTwo(){
-
-    numberInput.push("2");
-    document.getElementById("screen").innerHTML = numberInput.join("");
-    disableNegative();
-    disableNumberInput();
-
-
-}
-
-function enterThree(){
-
-    numberInput.push("3");
-    document.getElementById("screen").innerHTML = numberInput.join("");
-    disableNegative();
-    disableNumberInput();
-
-
-}
-
-function enterFour(){
-
-    numberInput.push("4");
-    document.getElementById("screen").innerHTML = numberInput.join("");
-    disableNegative();
-    disableNumberInput();
-
-
-}
-
-function enterFive(){
-
-    numberInput.push("5");
-    document.getElementById("screen").innerHTML = numberInput.join("");
-    disableNegative();
-    checkNumberInput();
-    
-}
-
-function enterSix(){
-
-    numberInput.push("6");
-    document.getElementById("screen").innerHTML = numberInput.join("");
-    disableNegative();
-    disableNumberInput();
-
-}
-
-function enterSeven(){
-
-    numberInput.push("7");
-    document.getElementById("screen").innerHTML =  numberInput.join("");
-    disableNegative();
-    disableNumberInput();
-
-}
-
-function enterEight(){
-
-    numberInput.push("8");
-    document.getElementById("screen").innerHTML = numberInput.join("");
-    disableNegative();
-    disableNumberInput();
-
-}
-
-function enterNine(){
-
-    numberInput.push("9");
-    document.getElementById("screen").innerHTML =  numberInput.join("");
-    disableNegative();
-    disableNumberInput();
-    
-}
-
-function enterZero(){
-
-    numberInput.push("0");
-    document.getElementById("screen").innerHTML = numberInput.join("");
-    disableNegative();
-    disableNumberInput();
-
-}
-
 
 
 
@@ -187,8 +102,9 @@ function enterPlus(){
 
     numList.push(numberInput.join(""));
     calculate();
+    overwriteSign();
     mathsign = "+";
-    numList[1] = mathsign;
+    numList.push(mathsign);
     numberInput = [];
     enableButtons();
 
@@ -208,8 +124,9 @@ function enterMinus(){
 
     numList.push(numberInput.join(""));
     calculate();
+    overwriteSign();
     mathsign = "-";
-    numList[1] = mathsign;
+    numList.push(mathsign);
     numberInput = [];
     enableButtons();
 
@@ -229,8 +146,9 @@ function enterTimes(){
 
     numList.push(numberInput.join(""));
     calculate();
+    overwriteSign();
     mathsign = "*";
-    numList[1] = mathsign;
+    numList.push(mathsign);
     numberInput = [];
     enableButtons();
 
@@ -250,12 +168,14 @@ function enterDivide(){
 
     numList.push(numberInput.join(""));
     calculate();
+    overwriteSign();
     mathsign = "/";
-    numList[1] = mathsign;
+    numList.push(mathsign);
     numberInput = [];
     enableButtons();
 
 }
+
 
 /* enterEquals()
 
@@ -271,6 +191,16 @@ function enterEquals(){
     clearMemory();
     enableNumberInput();
     
+}
+
+function overwriteSign(){
+
+    if(mathsign != ""){
+
+        numList.pop();
+
+    }
+
 }
 
 function disableNegative(){
@@ -329,6 +259,7 @@ function checkMathsign(){
     }
 
     document.getElementById("screen").innerHTML = ans.toPrecision(10);
+    mathsign = "";
 
 }
 
@@ -336,6 +267,7 @@ function clearMemory(){
 
     numList = [];
     numberInput = [];
+    mathsign = "";
     document.querySelector(".decimal").disabled = false;
     document.querySelector(".negative").disabled = false;
     enableNumberInput();
